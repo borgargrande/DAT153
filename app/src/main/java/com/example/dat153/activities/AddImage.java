@@ -18,21 +18,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-
 import com.example.dat153.R;
 import com.example.dat153.database.GameObject;
 import com.example.dat153.utils.GameObjectViewModel;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AddImage extends AppCompatActivity {
 
-    public static final String EXTRA_IMAGE_BYTES =
-            "com.jonas.dat153v2.activities.EXTRA_IMAGE_NAME";
-    public static final String EXTRA_IMAGE_NAME =
-            "com.jonas.dat153v2.activities.EXTRA_IMAGE_NAME";
+
 
     EditText imageName;
     Button addImageButton;
@@ -40,7 +34,7 @@ public class AddImage extends AppCompatActivity {
     Bitmap imageBitmap;
     GameObjectViewModel viewModel;
 
-    List<GameObject> allGameObjects;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +43,7 @@ public class AddImage extends AppCompatActivity {
 
         //Init all variables
         viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(GameObjectViewModel.class);
-        viewModel.getAllGameObjects().observe(this, gameObjects -> {
-            allGameObjects = new ArrayList<>(gameObjects);
-        });
+
         imageName = findViewById(R.id.editTextImageName);
         addImageButton = findViewById(R.id.addImageButton);
         addedImage = findViewById(R.id.addedImageView);
